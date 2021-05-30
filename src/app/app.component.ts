@@ -8,7 +8,7 @@ import { OnDestroy } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Angular ' + VERSION.major;
+  name = 'Reusable Progress bar';
 
   progressbarValue = 100;
   curSec: number = 0;
