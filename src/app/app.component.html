@@ -1,4 +1,6 @@
 <hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="basic-container">
+	<mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
+</div>
+
+<button mat-raised-button (click)="startTimer(60)">Start timer ({{curSec}})</button>
