@@ -9,19 +9,22 @@ import { OnDestroy } from '@angular/core';
 })
 export class AppComponent {
   name = 'Reusable Progress bar';
+  uploaded:boolean = false;
 
-  progressbarValue = 100;
+  progressbarValue = 5;
   curSec: number = 0;
 
   startTimer(seconds: number) {
+    this.uploaded = false;
     const time = seconds;
-    const timer$ = interval(1000);
+    const timer$ = interval(100);
 
     const sub = timer$.subscribe(sec => {
-      this.progressbarValue = 100 - (sec * 100) / seconds;
+      this.progressbarValue = 10 + (sec * 100) / seconds;
       this.curSec = sec;
 
       if (this.curSec === seconds) {
+        this.uploaded = true;
         sub.unsubscribe();
       }
     });
