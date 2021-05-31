@@ -5,10 +5,11 @@ import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { DocProgressBarComponent } from './shared/doc-progress-bar/doc-progress-bar.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MaterialModule],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [AppComponent, HelloComponent, DocProgressBarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
