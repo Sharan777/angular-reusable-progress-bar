@@ -1,7 +1,4 @@
-<hello name="{{ name }}"></hello>
-<div class="basic-container">
-  <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
-</div>
-
-<button mat-raised-button (click)="startTimer(60)">Upload</button>
-<p *ngIf="uploaded"> Upload succesful </p>
+<!-- <hello name="{{ name }}"></hello> -->
+<app-upload-progress-bar 
+[parentValue]="10"
+(uploadedEvent)="childEmit($event)"></app-upload-progress-bar>
