@@ -9,32 +9,42 @@ import { OnDestroy } from '@angular/core';
 })
 export class UploadProgressBarComponent implements OnInit {
   @Input() parentValue: any;
-  @Output() uploadedEvent = new EventEmitter<string>();
-  progressbarValue: number = 5;
+  @Input() secondsRequired: any;
+  @Input() UploadStatus: boolean;
+  @Output() uploadedEvent = new EventEmitter<any>();
+  progressbarValue: number = 10;
   curSec: number = 0;
   constructor() {}
 
   ngOnInit() {
     this.progressbarValue = this.parentValue;
+    this.startTimer(this.secondsRequired);
   }
 
   name = 'Reusable Progress bar';
-  uploaded: boolean = false;
+  //uploaded: boolean = false;
 
   startTimer(seconds: number) {
-    this.uploaded = false;
+    this.UploadStatus = false;
     const time = seconds;
     const timer$ = interval(100);
 
     const sub = timer$.subscribe(sec => {
       this.progressbarValue = 10 + (sec * 100) / seconds;
       this.curSec = sec;
-      this.uploadedEvent.emit('STATUS');
+      this.uploadedEvent.emit({
+        progressValue: this.progressbarValue,
+        currentSec: this.curSec
+      });
 
       if (this.curSec === seconds) {
-        this.uploaded = true;
+        //this.UploadStatus = true;
         sub.unsubscribe();
       }
     });
+  }
+
+  onChanges(simpleChanges) {
+    console.log(simpleChanges);
   }
 }

@@ -1,8 +1,5 @@
 <h3>{{name}}</h3>
 <div class="basic-container">
-  <mat-progress-bar mode="determinate" 
-  [value]="progressbarValue"></mat-progress-bar>
+  <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
 </div>
-
-<button mat-raised-button (click)="startTimer(60)">Upload</button>
-<p *ngIf="uploaded"> Upload succesful </p>
+<p *ngIf="UploadStatus"> Upload succesful </p>

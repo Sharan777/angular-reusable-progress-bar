@@ -1,4 +1,3 @@
 <!-- <hello name="{{ name }}"></hello> -->
-<app-upload-progress-bar 
-[parentValue]="10"
-(uploadedEvent)="childEmit($event)"></app-upload-progress-bar>
+<app-upload-progress-bar [parentValue]="parentValue" [secondsRequired]="secondsRequired" [UploadStatus]="UploadStatus"
+  (uploadedEvent)="childEmit($event)"></app-upload-progress-bar>
